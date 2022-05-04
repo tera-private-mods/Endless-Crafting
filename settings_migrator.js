@@ -1,28 +1,35 @@
 const DefaultSettings = {
-    cureId: 182439,
-	delay: 0,
-	reUsePie: true
+	"enabled": false,
+	"cureId": 182439,
+	"delay": 0,
+	"reUsePie": true
 }
 
 module.exports = function MigrateSettings(from_ver, to_ver, settings) {
-	if (from_ver === undefined) return Object.assign(Object.assign({}, DefaultSettings), settings);
+	if (from_ver === undefined) return { ...DefaultSettings, ...settings };
 	else if (from_ver === null) return DefaultSettings;
 	else {
+		from_ver = Number(from_ver);
+		to_ver = Number(to_ver);
+
 		if (from_ver + 1 < to_ver) {
 			settings = MigrateSettings(from_ver, from_ver + 1, settings);
 			return MigrateSettings(from_ver + 1, to_ver, settings);
 		}
 
+		const oldsettings = settings;
+
 		switch (to_ver) {
-			/*case 2:
-				settings.name = true;
-				break;*/
 			default:
-				console.log(`[TerableOpcodes] Your "config.json" was very outdated, so I've remade it.`);
-				Object.keys(settings).forEach(key => delete settings[key]);
-				settings = JSON.parse(JSON.stringify(DefaultSettings));
-				break;
+				settings = Object.assign(DefaultSettings, {});
+
+				for (const option in oldsettings) {
+					if (settings[option] !== undefined) {
+						settings[option] = oldsettings[option];
+					}
+				}
 		}
+
 		return settings;
 	}
-}
+};

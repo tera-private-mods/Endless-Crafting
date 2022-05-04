@@ -1,21 +1,19 @@
 {
-	"files": {
-		"config.json": {
-            "overwrite": false,
-			"hash": "f01a12f6c3a7b6f893a3909bfccda405d11a78173ea6cedec9ea03753e21f7c8"
-		},
-		"index.js": "dfc899a2d997960cb270b94d368035411fc9d9a1acbc7e98e9f6f31b12a8e71c",
-		"module.json": "bd1ff18062a378ef87b52e82134d0ab636e9b3ff83eb536209db29e0844e001e",
-		"README.md": "ecc18773cd3bc6622615d895910d0b6cf35c2f1f50028d6e24ab5759e06fe3c3",
-		"settings_migrator.js": "dbc7e0fd3fa75fa5649fe793255ee25b74dcc456230fc356ab1d677c9fe650fe"
-	},
-	"defs": {
-		"C_PLAYER_LOCATION": 5,
-		"S_ABNORMALITY_END": 1,
-		"S_FATIGABILITY_POINT": 3,
-		"C_START_PRODUCE": 1,
-		"S_PRODUCE_CRITICAL": 1,
-		"S_END_PRODUCE": 1,
-		"C_USE_ITEM": 3
-	}
+    "files": {
+        "README.md": "ecc18773cd3bc6622615d895910d0b6cf35c2f1f50028d6e24ab5759e06fe3c3",
+        "defs/S_FATIGABILITY_POINT.3.def": "c409dbe7c417576e2039de3caa444ca1e0de9ae4ea579a564e98422425e804a6",
+        "index.js": "e898ab58fc0bb7b05faaeb30d1c28289ae36817b82df1824c5a6ee887eebc8f0",
+        "module.json": "c2fcda1ad0704fa314cf9d71321d1f3ae8b665c9b135ccd02eab556a1931c0b4",
+        "settings_migrator.js": "38d31a4712e44d173b6f152c4df11d4506df5b6e2d037bdfb0551d5e254c6fd8"
+    },
+    "defs": {
+        "C_PLAYER_LOCATION": 5,
+        "C_START_PRODUCE": 1,
+        "C_USE_ITEM": 3,
+        "S_ABNORMALITY_END": 1,
+        "S_END_PRODUCE": 1,
+        "S_FATIGABILITY_POINT": 3,
+        "S_PRODUCE_CRITICAL": 1,
+        "S_START_PRODUCE": 3
+    }
 }
