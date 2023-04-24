@@ -1,7 +1,7 @@
 const DefaultSettings = {
-	"enabled": false,
-	"cureId": 182439,
+	"cureId": 179051,
 	"delay": 0,
+	"pointPP": 101,
 	"reUsePie": true
 }
 
