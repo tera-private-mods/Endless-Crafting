@@ -1,9 +1,9 @@
 {
     "files": {
-        "README.md": "8e79c3720c606ba024d7dee1243f81f70dad821143b26b144d845843ea79e7b0",
-        "index.js": "9f213a16c07af60a1d26db628dae1d0bc3d8092bd0a55955475d0f46786cdb3a",
-        "module.json": "1f81810ae739cf2e5f7ad4824c24e4e1f75dc81b128a394bd7a3be44f6190224",
-        "settings_migrator.js": "6e0faf0309c043cb3266e4a46fe816a42949a696f7608b1238f85a41ee3c271f"
+        "README.md": "f4b7019eda650be5f941ddad0d07dd64153003f47ecbe1bca5b439aa0c0e41c1",
+        "index.js": "992fd28254baabaea17e79ff702c14df1c60da709ef0bff74b12e3a9b63b80bf",
+        "module.json": "a2ee2ba7f056f6f67f5a12d2d52c075ad59e4bd4ae136f5ba1fe22f87cdb3f13",
+        "settings_migrator.js": "d802a4b80ca158905d4a4d42fbd6c51dd40d62468c1da6087f84ebb341a7f9f4"
     },
     "defs": {
         "C_START_PRODUCE": 1,

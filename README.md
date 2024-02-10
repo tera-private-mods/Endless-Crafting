@@ -1,5 +1,5 @@
 # Endless-Crafting
-This module will keep crafting the last crafted item, track number of crafts and crafting crits, reuse Moongourd Pie, and use Crafter's Cures (Elite is default, replace id in file to change deafult).
+This module will keep crafting the last crafted item, track number of crafts and crafting crits, reuse Moongourd Pie, and use Crafter's Cures (Elite is default, update it with "/8 craft (linkedItem)" to change default).
 
 ## Usage
 1. Type: /8 craft
