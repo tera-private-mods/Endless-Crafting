@@ -1,7 +1,6 @@
 const DefaultSettings = {
 	"cureId": 179051,
 	"delay": 0,
-	"pointPP": 101,
 	"reUsePie": true
 }
 
@@ -20,6 +19,9 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
 		const oldsettings = settings;
 
 		switch (to_ver) {
+			case 3:
+				delete settings.pointPP;
+				break;
 			default:
 				settings = Object.assign(DefaultSettings, {});
 

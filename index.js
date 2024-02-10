@@ -5,10 +5,17 @@
 String.prototype.clr = function(hexColor) { return `<font color='#${hexColor}'>${this}</font>`;};
 
 module.exports = function EndlessCrafting(mod) {
-	const { player, entity, library } = mod.require.library;
+	const { player } = mod.require.library;
 	const command = mod.command || mod.require.command,
 		PIE_ID = 206023,
 		PIE_AB_ID = 70264;
+
+	const recipes = new Map;
+    mod.queryData('/ItemProduceRecipe/Recipe/', [0], true, false, ['id','subFatiguePoint']).then(results => {
+        results.forEach(entry => { 
+			recipes.set(entry.attributes.id, entry.attributes);
+		})
+    });
 
 	mod.dispatch.addDefinition("S_FATIGABILITY_POINT", 3, [
 		["unk", "int32"],
@@ -20,6 +27,7 @@ module.exports = function EndlessCrafting(mod) {
 
 	let craftItem = null,
 		pp = 2000,
+		craftPP = 0,
 		cureDbid = 0n,
 		enabled = false,
 		timeout = null,
@@ -38,10 +46,6 @@ module.exports = function EndlessCrafting(mod) {
 				mod.settings.delay = 0;
 				command.message("Invalid mod.settings.delay, delay is now 0");
 			}
-		},
-		point: arg => {
-			mod.settings.pointPP = arg;
-			mod.command.message(`Use Elin's Tear when production points are below <font color="#fdff00">${mod.settings.pointPP}</font>`);
 		},
 		unlock() {
 			unlock();
@@ -118,6 +122,7 @@ module.exports = function EndlessCrafting(mod) {
 
 			hook("C_START_PRODUCE", 1, event => {
 				craftItem = event;
+				craftPP = recipes.get(event.recipe).subFatiguePoint;
 			});
 
 			hook("S_PRODUCE_CRITICAL", 1, event => {
@@ -142,8 +147,9 @@ module.exports = function EndlessCrafting(mod) {
 						command.message("You have 0 Moongourd Pies.");
 					}
 				}
-
-				if (pp < mod.settings.pointPP) {
+				//We receive the S_FATIGABILITY_POINT packet AFTER crafting finishes,
+				//so we need to account for the previous craft cost as well.
+				if(pp < craftPP*2) { 
 					command.message(`Using Elinu's Tear. ${pp}`);
 					extraDelay += 1000;
 					mod.setTimeout(() => {
